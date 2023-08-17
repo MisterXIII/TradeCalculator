@@ -14,8 +14,8 @@ There should be whitespace between paragraphs. We recommend including a README, 
 
 This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
 
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
+| Account Balance | Stop Loss Size    | Risk Percentage |
+|:----------------|:------------------|:----------------|
 | <input type="text" id="fname" name="fname" placeholder="John">           | good swedish fish | nice  |
 | out of stock | good and plenty   | nice  |
 | ok           | good `oreos`      | hmm   |
