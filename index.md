@@ -26,7 +26,6 @@ This is to help you calculate the _____
 </table>
 
 
-### Stop Loss Size:
 
 <br>
 <p id="output"></p>
