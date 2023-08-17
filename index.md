@@ -16,10 +16,24 @@ This is a normal paragraph following a header. GitHub is a code hosting platform
 
 | Account Balance | Stop Loss Size    | Risk Percentage |
 |:----------------|:------------------|:----------------|
-| <input type="text" id="fname" name="fname" placeholder="John">           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
+| <input class="query" type="text" id="accBal" name="accBal" placeholder="Enter Account Balance">           | <input class="query" type="text" id="stopLoss" name="stopLoss" placeholder="stopLoss"> | <input class="query" type="text" id="riskPercentage" name="riskPercentage" placeholder="Enter Account Balance">  |
+
+<script>
+
+  let inputs = document.querySelector(".query")
+
+  inputs.forEach(function(input) {
+    input.addEventListener('input', function() {
+      let accBal = document.getElementById("accBal");
+      let stopLoss = document.getElementById("stopLoss");
+      let riskPercentage = document.getElementById("riskPercentage");
+
+      output.textContent = riskPercentage * accBal / (stopLoss * 1000);
+    })
+  });
+
+</script>
+
 
 
 
