@@ -50,4 +50,12 @@ This is to help you calculate the _____
     })
   });
 
+  function writeCookie(){
+
+  }
+
+  function readCookie(){
+    
+  }
+
 </script>
