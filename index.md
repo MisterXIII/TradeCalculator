@@ -14,10 +14,14 @@ There should be whitespace between paragraphs. We recommend including a README, 
 
 This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
 
+| head1        | head two          | three |
+|:-------------|:------------------|:------|
+| <input type="text" id="fname" name="fname" value="John">           | good swedish fish | nice  |
+| out of stock | good and plenty   | nice  |
+| ok           | good `oreos`      | hmm   |
+| ok           | good `zoute` drop | yumm  |
 
-<label for="name">Name:</label>
-<input type="text" id="name" name="name"><br><br>
-<input type="submit" value="Submit">
+
 
 
 ## Header 2
