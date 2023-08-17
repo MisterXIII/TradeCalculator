@@ -34,6 +34,8 @@ This is to help you calculate the _____
 
   let inputs = document.querySelectorAll(".query")
 
+  let output = document.getElementById("output")
+
   inputs.forEach(function(input) {
     input.addEventListener('input', function() {
       let accBal = document.getElementById("accBal");
