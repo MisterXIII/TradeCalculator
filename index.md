@@ -14,7 +14,7 @@ This is to help you calculate the _____
   </tr>
   <tr>
     <td>
-      \$<input class="query" type="number" id="accBal" name="accBal" placeholder="Enter Account Balance" min="0">
+      <input class="query" type="number" id="accBal" name="accBal" placeholder="Enter Account Balance" min="0">
     </td>
     <td>
       <input class="query" type="number" id="stopLoss" name="stopLoss" placeholder="Enter Stop Loss" min="0">
@@ -25,9 +25,8 @@ This is to help you calculate the _____
   </tr>
 </table>
 
-### Stop Loss Size:
-<p id="output"></p>
-<br>
+### Stop Loss Size: <p id="output"></p>
+
 
 <script>
 
