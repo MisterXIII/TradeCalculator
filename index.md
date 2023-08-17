@@ -16,7 +16,10 @@ This is a normal paragraph following a header. GitHub is a code hosting platform
 
 | Account Balance | Stop Loss Size    | Risk Percentage |
 |:----------------|:------------------|:----------------|
-| <input class="query" type="text" id="accBal" name="accBal" placeholder="Enter Account Balance">           | <input class="query" type="text" id="stopLoss" name="stopLoss" placeholder="stopLoss"> | <input class="query" type="text" id="riskPercentage" name="riskPercentage" placeholder="Enter Account Balance">  |
+| <input class="query" type="text" id="accBal" name="accBal" placeholder="Enter Account Balance">           | <input class="query" type="text" id="stopLoss" name="stopLoss" placeholder="Enter Stop Loss"> | <input class="query" type="text" id="riskPercentage" name="riskPercentage" placeholder="Enter Risk Percentage">  |
+<br>
+<p id="output"></p>
+<br>
 
 <script>
 
