@@ -26,7 +26,7 @@ This is to help you calculate the _____
 </table>
 
 
-<br>
+### Stop Loss Size:
 <p id="output"></p>
 <br>
 
@@ -44,7 +44,10 @@ This is to help you calculate the _____
 
       if(accBal && stopLoss>0 && riskPercentage>0)
       {
-        output.textContent = riskPercentage * accBal / (stopLoss * 1000);
+        output.value = riskPercentage * accBal / (stopLoss * 1000);
+      } else
+      {
+        output.value = ''
       }
     })
   });
