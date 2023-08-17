@@ -6,9 +6,26 @@ layout: default
 
 This is to help you calculate the _____
 
-| Account Balance | Stop Loss Size    | Risk Percentage |
-|:----------------|:------------------|:----------------|
-| <input class="query" type="text" id="accBal" name="accBal" placeholder="Enter Account Balance">           | <input class="query" type="text" id="stopLoss" name="stopLoss" placeholder="Enter Stop Loss"> | <input class="query" type="text" id="riskPercentage" name="riskPercentage" placeholder="Enter Risk Percentage">  |
+<table>
+  <tr>
+    <th>Account Balance</th>
+    <th>Stop Loss</th>
+    <th>Risk Percentage</th>
+  </tr>
+  <tr>
+    <th>
+      <input class="query" type="text" id="accBal" name="accBal" placeholder="Enter Account Balance">
+    </th>
+    <th>
+      <input class="query" type="text" id="stopLoss" name="stopLoss" placeholder="Enter Stop Loss">
+    </th>
+    <th>
+      <input class="query" type="text" id="riskPercentage" name="riskPercentage" placeholder="Enter Risk Percentage">
+    </th>
+  <tr>
+</table>
+
+
 <br>
 <p id="output"></p>
 <br>
