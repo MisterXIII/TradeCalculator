@@ -1,5 +1,5 @@
-title: Slate theme
-description: Slate is a theme for GitHub Pages.
-show_downloads: true
+title: Trade Calculator
+description: A collection of tools to help you save those crucial few seconds when making trades.
+show_downloads: false
 google_analytics:
 theme: jekyll-theme-slate
