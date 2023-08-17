@@ -13,16 +13,16 @@ This is to help you calculate the _____
     <th>Risk Percentage</th>
   </tr>
   <tr>
-    <th>
+    <td>
       <input class="query" type="text" id="accBal" name="accBal" placeholder="Enter Account Balance">
-    </th>
-    <th>
+    </td>
+    <td>
       <input class="query" type="text" id="stopLoss" name="stopLoss" placeholder="Enter Stop Loss">
-    </th>
-    <th>
+    </td>
+    <td>
       <input class="query" type="text" id="riskPercentage" name="riskPercentage" placeholder="Enter Risk Percentage">
-    </th>
-  <tr>
+    </td>
+  </tr>
 </table>
 
 
