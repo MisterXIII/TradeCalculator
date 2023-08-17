@@ -32,7 +32,7 @@ This is to help you calculate the _____
 
 <script>
 
-  let inputs = document.querySelector(".query")
+  let inputs = document.querySelectorAll(".query")
 
   inputs.forEach(function(input) {
     input.addEventListener('input', function() {
