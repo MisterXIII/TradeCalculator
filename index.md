@@ -38,9 +38,9 @@ This is to help you calculate the _____
 
   inputs.forEach(function(input) {
     input.addEventListener('input', function() {
-      let accBal = document.getElementById("accBal");
-      let stopLoss = document.getElementById("stopLoss");
-      let riskPercentage = document.getElementById("riskPercentage");
+      let accBal = parseInt(document.getElementById("accBal").value);
+      let stopLoss = parseInt(document.getElementById("stopLoss").value);
+      let riskPercentage = parseInt(document.getElementById("riskPercentage").value);
 
       if(accBal && stopLoss && riskPercentage)
       {
