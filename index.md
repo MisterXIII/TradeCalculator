@@ -16,7 +16,7 @@ This is a normal paragraph following a header. GitHub is a code hosting platform
 
 | head1        | head two          | three |
 |:-------------|:------------------|:------|
-| <input type="text" id="fname" name="fname" value="John">           | good swedish fish | nice  |
+| <input type="text" id="fname" name="fname" placeholder="John">           | good swedish fish | nice  |
 | out of stock | good and plenty   | nice  |
 | ok           | good `oreos`      | hmm   |
 | ok           | good `zoute` drop | yumm  |
