@@ -14,13 +14,13 @@ This is to help you calculate the _____
   </tr>
   <tr>
     <td>
-      <input class="query" type="text" id="accBal" name="accBal" placeholder="Enter Account Balance">
+      <input class="query" type="number" id="accBal" name="accBal" placeholder="Enter Account Balance">
     </td>
     <td>
-      <input class="query" type="text" id="stopLoss" name="stopLoss" placeholder="Enter Stop Loss">
+      <input class="query" type="number" id="stopLoss" name="stopLoss" placeholder="Enter Stop Loss">
     </td>
     <td>
-      <input class="query" type="text" id="riskPercentage" name="riskPercentage" placeholder="Enter Risk Percentage">
+      <input class="query" type="number" id="riskPercentage" name="riskPercentage" placeholder="Enter Risk Percentage">
     </td>
   </tr>
 </table>
@@ -42,7 +42,10 @@ This is to help you calculate the _____
       let stopLoss = document.getElementById("stopLoss");
       let riskPercentage = document.getElementById("riskPercentage");
 
-      output.textContent = riskPercentage * accBal / (stopLoss * 1000);
+      if(accBal && stopLoss && riskPercentage)
+      {
+        output.textContent = riskPercentage * accBal / (stopLoss * 1000);
+      }
     })
   });
 
