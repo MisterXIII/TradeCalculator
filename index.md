@@ -49,13 +49,13 @@ This is to help you calculate the _____
         output.textContent = riskPercentage * accBal / (stopLoss * 1000);
       } else
       {
-        output.textContent = ''
+        output.textContent = '';
       }
     })
   });
 
   // Read cookies when loading
-  document.body.addEventListener('load' function() {
+  document.body.addEventListener('load', function() {
     document.getElementById("accBal").textContent = readCookie("accBal");
     document.getElementById("riskPercentage").textContent = readCookie("riskPercentage");
   })
