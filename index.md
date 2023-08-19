@@ -46,18 +46,18 @@ This is to help you calculate the _____
 
       if(accBal>0 && riskPercentage>0 && stopLoss>0)
       {
-        output.textContent = riskPercentage * accBal / (stopLoss * 1000);
+        output.value = riskPercentage * accBal / (stopLoss * 1000);
       } else
       {
-        output.textContent = '';
+        output.value = '';
       }
     })
   });
 
   // Read cookies when loading
   document.body.addEventListener('load', function() {
-    document.getElementById("accBal").textContent = readCookie("accBal");
-    document.getElementById("riskPercentage").textContent = readCookie("riskPercentage");
+    document.getElementById("accBal").value = readCookie("accBal");
+    document.getElementById("riskPercentage").value = readCookie("riskPercentage");
   });
 
 
