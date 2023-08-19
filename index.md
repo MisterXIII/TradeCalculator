@@ -62,7 +62,7 @@ This is to help you calculate the _____
 
 
   // Save to cookies before unloading
-  window.addEventListener('unload', function(){
+  window.addEventListener('beforeunload', function(){
     writeCookie("accBal", document.getElementById("accBal").value);
     writeCookie("riskPercentage", document.getElementById("riskPercentage").value);
   });
