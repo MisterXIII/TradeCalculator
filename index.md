@@ -14,10 +14,10 @@ This is to help you calculate the _____
   </tr>
   <tr>
     <td>
-      <input class="query" type="number" id="accBal" name="accBal" onload="this.textContent=readCookie(this.id);" placeholder="Enter Account Balance" min="0">
+      <input class="query" type="number" id="accBal" name="accBal" placeholder="Enter Account Balance" min="0">
     </td>
     <td>
-      <input class="query" type="number" id="riskPercentage" name="riskPercentage" onload="this.textContent=readCookie(this.id);" placeholder="Enter Risk Percentage" min="0">
+      <input class="query" type="number" id="riskPercentage" name="riskPercentage" placeholder="Enter Risk Percentage" min="0">
     </td>
     <td>
       <input class="query" type="number" id="stopLoss" name="stopLoss" placeholder="Enter Stop Loss" min="0">
@@ -53,6 +53,12 @@ This is to help you calculate the _____
       }
     })
   });
+
+  // Read cookies when loading
+  document.body.addEventListener('load' function() {
+    document.getElementById("accBal").textContent = readCookie("accBal");
+    document.getElementById("riskPercentage").textContent = readCookie("riskPercentage");
+  })
 
 
   // Save to cookies before unloading
