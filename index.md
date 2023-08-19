@@ -14,10 +14,10 @@ This is to help you calculate the _____
   </tr>
   <tr>
     <td>
-      <input class="query" type="number" id="accBal" name="accBal" onload="this.textContent=readCookie(this.id);" onunload="writeCookie(this.id, this.value)" placeholder="Enter Account Balance" min="0">
+      <input class="query" type="number" id="accBal" name="accBal" onload="this.textContent=readCookie(this.id);" placeholder="Enter Account Balance" min="0">
     </td>
     <td>
-      <input class="query" type="number" id="riskPercentage" name="riskPercentage" onload="this.textContent=readCookie(this.id);" onunload="writeCookie(this.id, this.value)" placeholder="Enter Risk Percentage" min="0">
+      <input class="query" type="number" id="riskPercentage" name="riskPercentage" onload="this.textContent=readCookie(this.id);" placeholder="Enter Risk Percentage" min="0">
     </td>
     <td>
       <input class="query" type="number" id="stopLoss" name="stopLoss" placeholder="Enter Stop Loss" min="0">
@@ -34,16 +34,17 @@ This is to help you calculate the _____
 
   let output = document.getElementById("output")
 
+
   // Update anytime the textboxes are updated
   inputs.forEach(function(input) {
     input.addEventListener('input', function() {
 
       // Do the math
       let accBal = parseInt(document.getElementById("accBal").value);
-      let stopLoss = parseInt(document.getElementById("stopLoss").value);
       let riskPercentage = parseInt(document.getElementById("riskPercentage").value);
+      let stopLoss = parseInt(document.getElementById("stopLoss").value);
 
-      if(accBal>0 && stopLoss>0 && riskPercentage>0)
+      if(accBal>0 && riskPercentage>0 && stopLoss>0)
       {
         output.textContent = riskPercentage * accBal / (stopLoss * 1000);
       } else
@@ -52,6 +53,13 @@ This is to help you calculate the _____
       }
     })
   });
+
+
+  // Save to cookies before unloading
+  document.body.addEventListener('unload', function(){
+    writeCookie("accBal", document.getElementById("accBal").value);
+    writeCookie("riskPercentage", document.getElementById("riskPercentage").value);
+  })
 
   // Add a value to the cookie
   function writeCookie(key, value){
