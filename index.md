@@ -58,14 +58,14 @@ This is to help you calculate the _____
   document.body.addEventListener('load', function() {
     document.getElementById("accBal").textContent = readCookie("accBal");
     document.getElementById("riskPercentage").textContent = readCookie("riskPercentage");
-  })
+  });
 
 
   // Save to cookies before unloading
   document.body.addEventListener('unload', function(){
     writeCookie("accBal", document.getElementById("accBal").value);
     writeCookie("riskPercentage", document.getElementById("riskPercentage").value);
-  })
+  });
 
   // Add a value to the cookie
   function writeCookie(key, value){
