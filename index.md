@@ -46,10 +46,10 @@ This is to help you calculate the _____
 
       if(accBal>0 && riskPercentage>0 && stopLoss>0)
       {
-        output.value = riskPercentage * accBal / (stopLoss * 1000);
+        output.textContent = riskPercentage * accBal / (stopLoss * 1000);
       } else
       {
-        output.value = '';
+        output.textContent = '';
       }
     })
   });
