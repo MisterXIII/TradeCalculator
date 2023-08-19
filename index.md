@@ -55,14 +55,14 @@ This is to help you calculate the _____
   });
 
   // Read cookies when loading
-  document.body.addEventListener('load', function() {
+  window.addEventListener('load', function() {
     document.getElementById("accBal").value = readCookie("accBal");
     document.getElementById("riskPercentage").value = readCookie("riskPercentage");
   });
 
 
   // Save to cookies before unloading
-  document.body.addEventListener('unload', function(){
+  window.addEventListener('unload', function(){
     writeCookie("accBal", document.getElementById("accBal").value);
     writeCookie("riskPercentage", document.getElementById("riskPercentage").value);
   });
