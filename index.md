@@ -84,7 +84,7 @@ This is to help you calculate the _____
     }
 
     let st = document.cookie.indexOf(key);
-    let ed = document.cookie.indexOf(";", st);
+    let ed = document.cookie.indexOf(",", st);
 
     document.cookie = document.cookie.substring(0, st) + document.cookie.substring(ed + 1);
 
@@ -105,7 +105,7 @@ This is to help you calculate the _____
       return "";
     }
 
-    return document.cookie.substring(document.cookie.indexOf("=", ind) + 1, document.cookie.indexOf(";", ind));
+    return document.cookie.substring(document.cookie.indexOf("=", ind) + 1, document.cookie.indexOf(",", ind));
   }
 
 </script>
