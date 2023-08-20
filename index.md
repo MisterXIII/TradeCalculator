@@ -73,7 +73,7 @@ This is to help you calculate the _____
     {
       deleteCookie(key);
     }
-    document.cookie += key + "=" + value + ";";
+    document.cookie += key + "=" + value + ",";
   }
 
   // Remove a value from the cookie
