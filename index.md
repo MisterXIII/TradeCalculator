@@ -66,6 +66,14 @@ This is to help you calculate the _____
 
       document.getElementById(key).value = val;
     })
+
+    Array.from(inputs).some(function(input) {
+      if(!input.value)
+      {
+        input.focus();
+        return true;
+      }
+    });
     console.log("Starting cookie: " + document.cookie);
   });
 
