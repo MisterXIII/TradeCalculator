@@ -34,6 +34,8 @@ This is to help you calculate the _____
 
   let output = document.getElementById("output")
 
+  let suffix = "\; ";
+
 
   // Update anytime the textboxes are updated
   inputs.forEach(function(input) {
@@ -56,40 +58,30 @@ This is to help you calculate the _____
 
   // Read cookies when loading
   window.addEventListener('load', function() {
-    document.getElementById("accBal").value = readCookie("accBal");
-    document.getElementById("riskPercentage").value = readCookie("riskPercentage");
+    let cooks = readCookie();
+    cooks.forEach(function(cook)
+    {
+      let key = cook.substring(0, cook.indexOf('='));
+      let val = cook.substring(cook.indexOf('=') + 1);
+
+      document.getElementById(key).value = val;
+    })
+    console.log("Starting cookie: " + document.cookie);
   });
 
 
   // Save to cookies before unloading
-  window.addEventListener('beforeunload', function(){
+  window.addEventListener('unload', function(){
+    clearCookie();
     writeCookie("accBal", document.getElementById("accBal").value);
     writeCookie("riskPercentage", document.getElementById("riskPercentage").value);
+
+    console.log("Final cookie: " + document.cookie);
   });
 
   // Add a value to the cookie
   function writeCookie(key, value){
-    if(readCookie(key))
-    {
-      deleteCookie(key);
-    }
-    document.cookie += key + "=" + value + ",";
-  }
-
-  // Remove a value from the cookie
-  function deleteCookie(key) {
-    if(document.cookie.search(key) == -1)
-    {
-      return;
-    }
-
-    let st = document.cookie.indexOf(key);
-    let ed = document.cookie.indexOf(",", st);
-
-    document.cookie = document.cookie.substring(0, st) + document.cookie.substring(ed + 1);
-
-
-
+    document.cookie = key + "=" + value;
   }
 
   // Clear the cookie
@@ -98,14 +90,12 @@ This is to help you calculate the _____
   }
 
   // Read a value from the cookie
-  function readCookie(key){
-    let ind = document.cookie.indexOf(key);
-    if(ind == -1)
-    {
-      return "";
-    }
+  function readCookie(){
 
-    return document.cookie.substring(document.cookie.indexOf("=", ind) + 1, document.cookie.indexOf(",", ind));
+    let decookie = decodeURIComponent(document.cookie);
+    value = decookie.split('\; ');
+
+    return value;
   }
 
 </script>

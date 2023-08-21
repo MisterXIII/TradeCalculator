@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "ruby",
+      "command": "bundle exec jekyll server",
+      "isBackground": true,
+      "type": "shell"
+    }
+  ]
+}
