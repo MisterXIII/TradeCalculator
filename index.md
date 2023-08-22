@@ -34,8 +34,29 @@ This is to help you calculate the _____
 
   let output = document.getElementById("output")
 
-  let suffix = "\; ";
+// Expiry for cookies: 30 days
+  Date d = new Date();
+  d.setDate(d.getDate() + 1000*60*60*24*30);
+  let suffix = "\; expires=" + d.toUTCString();
 
+  // Load cookies and fill up text boxes
+      let cooks = readCookie();
+    cooks.forEach(function(cook)
+    {
+      let key = cook.substring(0, cook.indexOf('='));
+      let val = cook.substring(cook.indexOf('=') + 1);
+
+      document.getElementById(key).value = val;
+    })
+
+    Array.from(inputs).some(function(input) {
+      if(!input.value)
+      {
+        input.focus();
+        return true;
+      }
+    });
+    console.log("Starting cookie: " + document.cookie);
 
   // Update anytime the textboxes are updated
   inputs.forEach(function(input) {
@@ -56,31 +77,10 @@ This is to help you calculate the _____
     })
   });
 
-  // Read cookies when loading
-  window.addEventListener('load', function() {
-    let cooks = readCookie();
-    cooks.forEach(function(cook)
-    {
-      let key = cook.substring(0, cook.indexOf('='));
-      let val = cook.substring(cook.indexOf('=') + 1);
-
-      document.getElementById(key).value = val;
-    })
-
-    Array.from(inputs).some(function(input) {
-      if(!input.value)
-      {
-        input.focus();
-        return true;
-      }
-    });
-    console.log("Starting cookie: " + document.cookie);
-  });
 
 
   // Save to cookies before unloading
   window.addEventListener('unload', function(){
-    clearCookie();
     writeCookie("accBal", document.getElementById("accBal").value);
     writeCookie("riskPercentage", document.getElementById("riskPercentage").value);
 
@@ -89,12 +89,8 @@ This is to help you calculate the _____
 
   // Add a value to the cookie
   function writeCookie(key, value){
-    document.cookie = key + "=" + value;
-  }
 
-  // Clear the cookie
-  function clearCookie(){
-    document.cookie = "";
+    document.cookie = key + "=" + value + suffix;
   }
 
   // Read a value from the cookie
