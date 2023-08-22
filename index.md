@@ -28,30 +28,6 @@ This is to help you calculate the _____
   console.log("Expiry time in UTC: " + d.toUTCString());
   let suffix = "\; expires=" + d.toUTCString() + "\; path=/";
 
-// Load cookies and fill up text boxes
-  let cooks = readCookie();
-  if (cooks != null) 
-  {
-  cooks.forEach(function(cook)
-  {
-    let key = cook.substring(0, cook.indexOf('='));
-    let val = cook.substring(cook.indexOf('=') + 1);
-
-    console.log("Key: " + key);
-
-    document.getElementById(key).value = val;
-  });
-  }
-
-  // Set focus to the first unfilled text box
-  Array.from(inputs).some(function(input) {
-    if(!input.value)
-    {
-      input.focus();
-      return true;
-    }
-  });
-
 
   // LOG: Starting cookie
   console.log("Starting cookie: " + document.cookie);
@@ -89,6 +65,8 @@ This is to help you calculate the _____
     if((desktopScreen && window.innerWidth <= 768) || (!desktopScreen && window.innerWidth > 768)) {
       desktopScreen = window.innerWidth > 768;
       drawTable();
+      fillText();
+      focusInput();
     }
   });
 
@@ -103,7 +81,7 @@ This is to help you calculate the _____
       </tr>
       <tr>
         <td>
-          <input type="number" id="accBal" name="accBal" placeHolder="Add Acount Balance">
+          <input type="number" class="query" id="accBal" name="accBal" placeHolder="Add Acount Balance">
         </td>
       </tr>
       <tr>
@@ -111,7 +89,7 @@ This is to help you calculate the _____
       </tr>
       <tr>
         <td>
-          <input type="text" id="riskPercentage" name="riskPercentage" placeHolder="Add Risk Percentage">
+          <input type="number" class="query" id="riskPercentage" name="riskPercentage" placeHolder="Add Risk Percentage">
         </td>
       </tr>
       <tr>
@@ -119,7 +97,7 @@ This is to help you calculate the _____
       </tr>
       <tr>
         <td>
-          <input type="number" id="stopLoss" name="stopLoss" placeHolder="Add Stop Loss">
+          <input type="number" class="query" id="stopLoss" name="stopLoss" placeHolder="Add Stop Loss">
         </td>
       </tr>`
 
@@ -145,6 +123,35 @@ This is to help you calculate the _____
   </tr>`
     }
   }
+
+// Load cookies and fill up text boxes
+function fillText() {
+  let cooks = readCookie();
+  if (cooks != null) 
+  {
+    cooks.forEach(function(cook)
+    {
+      let key = cook.substring(0, cook.indexOf('='));
+      let val = cook.substring(cook.indexOf('=') + 1);
+
+      console.log("Key: " + key);
+
+      document.getElementById(key).value = val;
+    });
+  }
+}
+
+// Set focus to the first unfilled text box
+function focusInput()
+{
+  Array.from(inputs).some(function(input) {
+    if(!input.value)
+    {
+      input.focus();
+      return true;
+    }
+  });
+}
 
   // Add a value to the cookie
   function writeCookie(key, value){
