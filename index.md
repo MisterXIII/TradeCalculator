@@ -6,23 +6,7 @@ layout: default
 
 This is to help you calculate the _____
 
-<table>
-  <tr>
-    <th>Account Balance</th>
-    <th>Risk Percentage</th>
-    <th>Stop Loss</th>
-  </tr>
-  <tr>
-    <td>
-      <input class="query" type="number" id="accBal" name="accBal" placeholder="Enter Account Balance" min="0">
-    </td>
-    <td>
-      <input class="query" type="number" id="riskPercentage" name="riskPercentage" placeholder="Enter Risk Percentage" min="0">
-    </td>
-    <td>
-      <input class="query" type="number" id="stopLoss" name="stopLoss" placeholder="Enter Stop Loss" min="0">
-    </td>
-  </tr>
+<table id="mainTable">
 </table>
 
 ### Stop Loss Size:
@@ -34,10 +18,14 @@ This is to help you calculate the _____
 
   let output = document.getElementById("output")
 
+  // Mobile or Desktop screen?
+  let desktopScreen = window.innerWidth > 768;
+  drawTable();
+
 // Expiry for cookies: 30 days
   let d = new Date();
   d.setTime(d.getTime() + 1000*60*60*24*30);
-  console.log("UTC Time: " + d.toUTCString());
+  console.log("Expiry time in UTC: " + d.toUTCString());
   let suffix = "\; expires=" + d.toUTCString() + "\; path=/";
 
 // Load cookies and fill up text boxes
@@ -55,6 +43,7 @@ This is to help you calculate the _____
   });
   }
 
+  // Set focus to the first unfilled text box
   Array.from(inputs).some(function(input) {
     if(!input.value)
     {
@@ -62,7 +51,11 @@ This is to help you calculate the _____
       return true;
     }
   });
+
+
+  // LOG: Starting cookie
   console.log("Starting cookie: " + document.cookie);
+
 
   // Update anytime the textboxes are updated
   inputs.forEach(function(input) {
@@ -89,9 +82,69 @@ This is to help you calculate the _____
   window.addEventListener('beforeunload', function(){
     writeCookie("accBal", document.getElementById("accBal").value);
     writeCookie("riskPercentage", document.getElementById("riskPercentage").value);
-
     console.log("Final cookie: " + document.cookie);
   });
+
+  window.addEventListener('resize', function() {
+    if((desktopScreen && window.innerWidth <= 768) || (!desktopScreen && window.innerWidth > 768)) {
+      desktopScreen = window.innerWidth > 768;
+      drawTable();
+    }
+  });
+
+
+    
+  // Window resize
+  function drawTable(){
+    if (window.innerWidth <= 768){
+      mainTable.innerHTML = `
+      <tr>
+        <th>Account Balance</th>
+      </tr>
+      <tr>
+        <td>
+          <input type="number" id="accBal" name="accBal" placeHolder="Add Acount Balance">
+        </td>
+      </tr>
+      <tr>
+        <th>Risk Percentage</th>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" id="riskPercentage" name="riskPercentage" placeHolder="Add Risk Percentage">
+        </td>
+      </tr>
+      <tr>
+        <th>Stop Loss</th>
+      </tr>
+      <tr>
+        <td>
+          <input type="number" id="stopLoss" name="stopLoss" placeHolder="Add Stop Loss">
+        </td>
+      </tr>`
+
+
+
+    } else {
+      mainTable.innerHTML = `
+  <tr>
+    <th>Account Balance</th>
+    <th>Risk Percentage</th>
+    <th>Stop Loss</th>
+  </tr>
+  <tr>
+    <td>
+      <input class="query" type="number" id="accBal" name="accBal" placeholder="Enter Account Balance" min="0">
+    </td>
+    <td>
+      <input class="query" type="number" id="riskPercentage" name="riskPercentage" placeholder="Enter Risk Percentage" min="0">
+    </td>
+    <td>
+      <input class="query" type="number" id="stopLoss" name="stopLoss" placeholder="Enter Stop Loss" min="0">
+    </td>
+  </tr>`
+    }
+  }
 
   // Add a value to the cookie
   function writeCookie(key, value){
