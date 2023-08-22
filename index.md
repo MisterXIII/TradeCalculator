@@ -37,7 +37,7 @@ This is to help you calculate the _____
 // Expiry for cookies: 30 days
   let d = new Date();
   d.setDate(d.getDate() + 1000*60*60*24*30);
-  let suffix = "\; expires=" + d.toUTCString();
+  let suffix = "\; expires=" + d.toUTCString() + "\; path=/";
 
 // Load cookies and fill up text boxes
   let cooks = readCookie();
@@ -102,7 +102,6 @@ This is to help you calculate the _____
   function readCookie(){
 
     let decookie = decodeURIComponent(document.cookie);
-    console.log("Parsed cookie: " + decookie);
     value = decookie.split('\; ');
 
     return value[0] == "" ? null : value;
