@@ -79,7 +79,7 @@ Cookie:
 
 
   // Save to cookies before unloading
-  window.addEventListener('beforeunload', function(){
+  window.addEventListener('unload', function(){
     writeCookie("accBal", document.getElementById("accBal").value);
     writeCookie("riskPercentage", document.getElementById("riskPercentage").value);
     console.log("Final cookie: " + document.cookie);
