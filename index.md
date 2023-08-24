@@ -2,18 +2,18 @@
 layout: default
 ---
 
-# Stop Loss Calculator
+# Lot Size Calculator
 
 This is to help you calculate the _____
 
 <table id="mainTable">
 </table>
 
-### Stop Loss Size:
+### Lot Size:
 <p id="output"></p>
 
 <script>
-
+  
   let inputs = document.querySelectorAll(".query")
 
   let output = document.getElementById("output")
@@ -61,12 +61,12 @@ This is to help you calculate the _____
     console.log("Final cookie: " + document.cookie);
   });
 
+  // Adjust table if resized
   window.addEventListener('resize', function() {
+
     if((desktopScreen && window.innerWidth <= 768) || (!desktopScreen && window.innerWidth > 768)) {
       desktopScreen = window.innerWidth > 768;
       drawTable();
-      fillText();
-      focusInput();
     }
   });
 
