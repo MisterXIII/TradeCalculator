@@ -9,11 +9,15 @@ This is to help you calculate the _____
 <table id="mainTable">
 </table>
 
+Cookie:
+<p id="cookieOut"></p>
+
 ### Lot Size:
 <p id="output"></p>
 
 <script>
   let cookies = initCookies();
+  cookieOut.textContent = decodeURIComponent(document.cookie);
   
   // Initialize input boxes
   let accBalInput = document.createElement("input");
@@ -36,7 +40,7 @@ This is to help you calculate the _____
     input.value = cookies.get(input.id);
   })
 
-  let output = document.getElementById("output")
+  let output = document.getElementById("output");
 
   // Mobile or Desktop screen?
   let desktopScreen = window.innerWidth > 768;
@@ -140,23 +144,6 @@ This is to help you calculate the _____
 
   
   }
-
-// Load cookies and fill up text boxes
-function fillText() {
-  let cooks = readCookie();
-  if (cooks != null) 
-  {
-    cooks.forEach(function(cook)
-    {
-      let key = cook.substring(0, cook.indexOf('='));
-      let val = cook.substring(cook.indexOf('=') + 1);
-
-      console.log("Key: " + key);
-
-      document.getElementById(key).value = val;
-    });
-  }
-}
 
 // Set focus to the first unfilled text box
 function focusInput()
