@@ -4,7 +4,7 @@ layout: default
 
 # Lot Size Calculator
 
-This is to help you calculate the _____
+This is to help you calculate the Lot Size
 
 <table id="mainTable">
 </table>
