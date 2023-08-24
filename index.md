@@ -57,6 +57,10 @@ This is to help you calculate the Lot Size
   inputs.forEach(function(input) {
     input.addEventListener('input', function() {
 
+      // Save to cookie
+      writeCookie(input.id, document.getElementById(input.id).value);
+
+
       // Do the math
       let accBal = parseInt(document.getElementById("accBal").value);
       let riskPercentage = parseInt(document.getElementById("riskPercentage").value);
@@ -70,15 +74,6 @@ This is to help you calculate the Lot Size
         output.textContent = '';
       }
     })
-  });
-
-
-
-  // Save to cookies before unloading
-  window.addEventListener('unload', function(){
-    writeCookie("accBal", document.getElementById("accBal").value);
-    writeCookie("riskPercentage", document.getElementById("riskPercentage").value);
-    console.log("Final cookie: " + document.cookie);
   });
 
   // Adjust table if resized
