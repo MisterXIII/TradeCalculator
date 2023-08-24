@@ -13,8 +13,28 @@ This is to help you calculate the _____
 <p id="output"></p>
 
 <script>
+  let cookies = initCookies();
   
-  let inputs = document.querySelectorAll(".query")
+  // Initialize input boxes
+  let accBalInput = document.createElement("input");
+  accBalInput.id = "accBal";
+  accBalInput.placeholder = "Enter Account Balance";
+
+  let riskPercentageInput = document.createElement("input");
+  riskPercentageInput.id = "riskPercentage";
+  riskPercentageInput.placeholder = "Enter Risk Percentage";
+
+  let stopLossInput = document.createElement("input");
+  stopLossInput.id = "stopLoss";
+  stopLossInput.placeholder = "Enter Stop Loss";
+
+  let inputs = [accBalInput, riskPercentageInput, stopLossInput];
+
+  inputs.forEach(function(input) {
+    input.type= "number";
+    input.min = "0";
+    input.value = cookies.get(input.id);
+  })
 
   let output = document.getElementById("output")
 
@@ -80,29 +100,23 @@ This is to help you calculate the _____
         <th>Account Balance</th>
       </tr>
       <tr>
-        <td>
-          <input type="number" class="query" id="accBal" name="accBal" placeHolder="Add Acount Balance">
+        <td id="accBalD">
         </td>
       </tr>
       <tr>
         <th>Risk Percentage</th>
       </tr>
       <tr>
-        <td>
-          <input type="number" class="query" id="riskPercentage" name="riskPercentage" placeHolder="Add Risk Percentage">
+        <td id="riskPercentageD">
         </td>
       </tr>
       <tr>
         <th>Stop Loss</th>
       </tr>
       <tr>
-        <td>
-          <input type="number" class="query" id="stopLoss" name="stopLoss" placeHolder="Add Stop Loss">
+        <td id="stopLossD">
         </td>
       </tr>`
-
-
-
     } else {
       mainTable.innerHTML = `
   <tr>
@@ -111,17 +125,20 @@ This is to help you calculate the _____
     <th>Stop Loss</th>
   </tr>
   <tr>
-    <td>
-      <input class="query" type="number" id="accBal" name="accBal" placeholder="Enter Account Balance" min="0">
+    <td id="accBalD">
     </td>
-    <td>
-      <input class="query" type="number" id="riskPercentage" name="riskPercentage" placeholder="Enter Risk Percentage" min="0">
+    <td id="riskPercentageD">
     </td>
-    <td>
-      <input class="query" type="number" id="stopLoss" name="stopLoss" placeholder="Enter Stop Loss" min="0">
+    <td id="stopLossD">
     </td>
   </tr>`
     }
+
+    document.getElementById("accBalD").appendChild(accBalInput);
+    document.getElementById("riskPercentageD").appendChild(riskPercentageInput);
+    document.getElementById("stopLossD").appendChild(stopLossInput);
+
+  
   }
 
 // Load cookies and fill up text boxes
@@ -159,13 +176,18 @@ function focusInput()
     document.cookie = key + "=" + value + suffix;
   }
 
-  // Read a value from the cookie
-  function readCookie(){
+  // Inititialize a map of cookies
+  function initCookies(){
 
     let decookie = decodeURIComponent(document.cookie);
-    value = decookie.split('\; ');
+    let pairs = decookie.split('\; ');
 
-    return value[0] == "" ? null : value;
+    let value = new Map();
+    pairs.forEach(function(cookie){
+      value.set(cookie.substring(0, cookie.indexOf('=')), cookie.substring(cookie.indexOf('=') + 1));
+    })
+
+    return value;
   }
 
 </script>
