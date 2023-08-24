@@ -9,15 +9,11 @@ This is to help you calculate the _____
 <table id="mainTable">
 </table>
 
-Cookie:
-<p id="cookieOut"></p>
-
 ### Lot Size:
 <p id="output"></p>
 
 <script>
   let cookies = initCookies();
-  cookieOut.textContent = decodeURIComponent(document.cookie);
   
   // Initialize input boxes
   let accBalInput = document.createElement("input");
