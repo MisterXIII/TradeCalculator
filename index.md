@@ -52,19 +52,20 @@ This is to help you calculate the Lot Size
   // LOG: Starting cookie
   console.log("Starting cookie: " + document.cookie);
 
+  Array.of(accBalInput, riskPercentageInput).forEach(function(input) {
+      // Save to cookie
+      input.addEventListener('input', function() {writeCookie(input.id, document.getElementById(input.id).value);});
+  });
 
   // Update anytime the textboxes are updated
   inputs.forEach(function(input) {
     input.addEventListener('input', function() {
 
-      // Save to cookie
-      writeCookie(input.id, document.getElementById(input.id).value);
-
 
       // Do the math
-      let accBal = parseInt(document.getElementById("accBal").value);
-      let riskPercentage = parseInt(document.getElementById("riskPercentage").value);
-      let stopLoss = parseInt(document.getElementById("stopLoss").value);
+      let accBal = parseFloat(document.getElementById("accBal").value);
+      let riskPercentage = parseFloat(document.getElementById("riskPercentage").value);
+      let stopLoss = parseFloat(document.getElementById("stopLoss").value);
 
       if(accBal>0 && riskPercentage>0 && stopLoss>0)
       {
