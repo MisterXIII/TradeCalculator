@@ -134,7 +134,7 @@ This is to help you calculate the Lot Size
     document.getElementById("riskPercentageD").appendChild(riskPercentageInput);
     document.getElementById("stopLossD").appendChild(stopLossInput);
 
-  
+    focusInput();
   }
 
 // Set focus to the first unfilled text box
