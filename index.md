@@ -69,7 +69,9 @@ This is to help you calculate the Lot Size
 
       if(accBal>0 && riskPercentage>0 && stopLoss>0)
       {
-        output.textContent = riskPercentage * accBal / (stopLoss * 1000);
+        answer = Math.trunc((riskPercentage * accBal / (stopLoss * 1000)) * 100) / 100;
+        output.textContent = answer; 
+        
       } else
       {
         output.textContent = '';
